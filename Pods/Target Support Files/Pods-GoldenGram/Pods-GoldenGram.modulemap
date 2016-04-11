@@ -1,0 +1,6 @@
+framework module Pods_GoldenGram {
+  umbrella header "Pods-GoldenGram-umbrella.h"
+
+  export *
+  module * { export * }
+}
