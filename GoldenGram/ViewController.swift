@@ -16,11 +16,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create a reference to a Firebase location
-        let myRootRef = Firebase(url:"https://golengram.firebaseio.com")
-        // Write data to Firebase
-        myRootRef.setValue("do you love firebase.")
-        
     }
     @IBAction func logInButtonTapped(sender: UIButton) {
         let email = self.userNameField.text

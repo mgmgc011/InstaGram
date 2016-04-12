@@ -20,8 +20,10 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
 //        var fullname = fullNameLabel.text
-        CURRENT_USER.observeEventType(.Value) { (snapshot) in
+       FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value) { (snapshot) in
             print(snapshot.value)
+//        self.fullNameLabel.text = "\(snapshot.valueForKey("first_name")) \(snapshot.valueForKey("last_name"))"
+//        self.dateOfBirthLabel.text = snapshot.valueForKey("date_of_birth")
         }
 //        fullname = CURRENT_USER.authData.valueForKey("first_name") as? String
 //        fullname == CURRENT_USER.valueForKey("first_name") as? String

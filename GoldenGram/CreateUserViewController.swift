@@ -60,23 +60,8 @@ class CreateUserViewController: UIViewController {
             presentViewController(alert, animated: true, completion: nil)
         }
         
-//        
-//        let ref = Firebase(url: "https://golengram.firebaseio.com")
-//        
-//        ref.createUser(emailField.text, password: passwordField.text) { (error, result) in
-//            
-//            if error != nil {
-//                print(error)
-//            } else {
-//                let userRef = ref.childByAppendingPath("users")
-//                let userDictionary = ["first_name": self.firstNameField.text! as String, "last_name": self.lastNameField.text! as String, "user_name": self.userNameField.text!]
-//                self.currentUserRef = userRef.childByAutoId()
-//                self.currentUserRef.setValue(userDictionary)
-//                
-//            }
-//        }
-    }
     
 
     
+}
 }
