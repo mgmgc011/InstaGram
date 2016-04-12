@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A27D8E1CBD6C890068D522 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */; };
 		09B0B2701CBD562900F5CF1A /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */; };
 		09B0B2721CBD57CD00F5CF1A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B0B2711CBD57CD00F5CF1A /* CoreImage.framework */; };
 		511E9CA20671FA285F1F61FD /* Pods_GoldenGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
 		09B0B2711CBD57CD00F5CF1A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				7BB250BF1CB85C1000994D58 /* AppDelegate.swift */,
 				7BB250C11CB85C1000994D58 /* ViewController.swift */,
 				09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */,
+				09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */,
 				7BB250C31CB85C1000994D58 /* Main.storyboard */,
 				7BB250C61CB85C1000994D58 /* Assets.xcassets */,
 				7BB250C81CB85C1000994D58 /* LaunchScreen.storyboard */,
@@ -130,6 +133,7 @@
 				TargetAttributes = {
 					7BB250BB1CB85C1000994D58 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 4DLHFFRA86;
 					};
 				};
 			};
@@ -219,6 +223,7 @@
 			files = (
 				7BB250C21CB85C1000994D58 /* ViewController.swift in Sources */,
 				7BB250C01CB85C1000994D58 /* AppDelegate.swift in Sources */,
+				09A27D8E1CBD6C890068D522 /* DownloadViewController.swift in Sources */,
 				09B0B2701CBD562900F5CF1A /* PhotoUploadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +338,7 @@
 			baseConfigurationReference = AA50FEC905ABB4EE7E11B4AB /* Pods-GoldenGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";
@@ -345,6 +351,7 @@
 			baseConfigurationReference = CAB0D0CCF7017E8B693D89C9 /* Pods-GoldenGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";

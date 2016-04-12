@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreImage
+import Firebase
 
 class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
@@ -100,9 +101,17 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     @IBAction func uploadPhotoTapped(sender: UIButton) {
+        let ref = Firebase(url:"https://torrid-heat-209.firebaseio.com")
+        ref.setValue(coversion(imageView.image!))
+        
         
     }
     
+    func coversion(image: UIImage) -> String {
+        let data = UIImageJPEGRepresentation(image, 0.5)
+        let base64String = data!.base64EncodedStringWithOptions([])
+        return base64String
+    }
     
     
     

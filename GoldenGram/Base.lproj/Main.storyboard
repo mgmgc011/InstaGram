@@ -227,10 +227,22 @@
                                     <action selector="photoLibraryButtonTapped:" destination="DyW-1w-BsD" eventType="touchUpInside" id="gNU-yA-Hga"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvo-xe-mJ6">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="336" y="72" width="32" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="HKF-Mq-bJK" kind="show" id="Oob-ie-osj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TfZ-8R-g5G" firstAttribute="centerX" secondItem="Y1a-r8-bD4" secondAttribute="centerX" id="246-EJ-z9v"/>
+                            <constraint firstItem="xvo-xe-mJ6" firstAttribute="top" secondItem="zd3-bq-ahK" secondAttribute="bottom" constant="8" id="2jR-hh-PUV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xvo-xe-mJ6" secondAttribute="trailing" constant="5" id="Axf-sH-qWK"/>
                             <constraint firstItem="n27-CB-Lhw" firstAttribute="top" secondItem="uCW-3W-ibG" secondAttribute="bottom" constant="1" id="B8W-U1-HfD"/>
                             <constraint firstItem="rGv-gb-V5f" firstAttribute="top" secondItem="ebX-bZ-tqG" secondAttribute="bottom" id="Cpe-i1-dx4"/>
                             <constraint firstItem="0Fl-JQ-gXA" firstAttribute="centerX" secondItem="Y1a-r8-bD4" secondAttribute="centerX" id="F0b-lC-TMg"/>
@@ -250,10 +262,13 @@
                                 <exclude reference="ebX-bZ-tqG"/>
                                 <exclude reference="n27-CB-Lhw"/>
                                 <exclude reference="uCW-3W-ibG"/>
+                                <exclude reference="xvo-xe-mJ6"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="246-EJ-z9v"/>
                                 <exclude reference="SkX-Es-wt9"/>
+                                <exclude reference="2jR-hh-PUV"/>
+                                <exclude reference="Axf-sH-qWK"/>
                                 <exclude reference="F0b-lC-TMg"/>
                                 <exclude reference="eoj-LF-fNS"/>
                                 <exclude reference="FLx-Fg-6eP"/>
@@ -273,10 +288,13 @@
                                 <include reference="ebX-bZ-tqG"/>
                                 <include reference="n27-CB-Lhw"/>
                                 <include reference="uCW-3W-ibG"/>
+                                <include reference="xvo-xe-mJ6"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="246-EJ-z9v"/>
                                 <include reference="SkX-Es-wt9"/>
+                                <include reference="2jR-hh-PUV"/>
+                                <include reference="Axf-sH-qWK"/>
                                 <include reference="F0b-lC-TMg"/>
                                 <include reference="eoj-LF-fNS"/>
                                 <include reference="FLx-Fg-6eP"/>
@@ -301,6 +319,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1A2-2I-BKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1995" y="1131"/>
+        </scene>
+        <!--Download View Controller-->
+        <scene sceneID="mLX-Io-SQ2">
+            <objects>
+                <viewController id="HKF-Mq-bJK" customClass="DownloadViewController" customModule="GoldenGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qVh-zT-Zhn"/>
+                        <viewControllerLayoutGuide type="bottom" id="z2D-Fr-JbF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2wg-To-xNl">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0J-Df-lOi">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Load Image"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="160" y="373" width="80" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="downloadButtonTapped:" destination="HKF-Mq-bJK" eventType="touchUpInside" id="mbs-JH-c4H"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tuN-H3-Clq">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="115" width="360" height="201"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="o0J-Df-lOi"/>
+                                <exclude reference="tuN-H3-Clq"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="o0J-Df-lOi"/>
+                                <include reference="tuN-H3-Clq"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="downloadImageView" destination="tuN-H3-Clq" id="tCp-QO-T6p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAE-pW-fne" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="1131"/>
         </scene>
         <!--Profile-->
         <scene sceneID="APX-TU-ZS8">

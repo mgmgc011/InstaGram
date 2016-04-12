@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Create a reference to a Firebase location
-        let myRootRef = Firebase(url:"https://golengram.firebaseio.com")
+        let myRootRef = Firebase(url:"https://torrid-heat-209.firebaseio.com")
         // Write data to Firebase
         myRootRef.setValue("Do you have data? You'll love Firebase.")
 
