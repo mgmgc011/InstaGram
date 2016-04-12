@@ -7,28 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09A27D8E1CBD6C890068D522 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */; };
-		09A27D901CBD82EA0068D522 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27D8F1CBD82EA0068D522 /* Post.swift */; };
-		09A27D921CBD84070068D522 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27D911CBD84070068D522 /* FeedViewController.swift */; };
-		09A27D941CBD85E90068D522 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A27D931CBD85E90068D522 /* PostCollectionViewCell.swift */; };
-		09B0B2701CBD562900F5CF1A /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */; };
-		09B0B2721CBD57CD00F5CF1A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B0B2711CBD57CD00F5CF1A /* CoreImage.framework */; };
 		511E9CA20671FA285F1F61FD /* Pods_GoldenGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */; };
+		7B938ECB1CBC3B050041DAB9 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */; };
+		7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */; };
+		7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECE1CBD34C10041DAB9 /* BaseService.swift */; };
 		7BB250C01CB85C1000994D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB250BF1CB85C1000994D58 /* AppDelegate.swift */; };
 		7BB250C21CB85C1000994D58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB250C11CB85C1000994D58 /* ViewController.swift */; };
 		7BB250C51CB85C1000994D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C31CB85C1000994D58 /* Main.storyboard */; };
 		7BB250C71CB85C1000994D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C61CB85C1000994D58 /* Assets.xcassets */; };
 		7BB250CA1CB85C1000994D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C81CB85C1000994D58 /* LaunchScreen.storyboard */; };
+		CD53E01D1CBD93E60084EFEA /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */; };
+		CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */; };
+		CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0201CBD93FA0084EFEA /* Post.swift */; };
+		CD53E0231CBD940A0084EFEA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0221CBD940A0084EFEA /* FeedViewController.swift */; };
+		CD53E0251CBD94390084EFEA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0241CBD94390084EFEA /* DownloadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
-		09A27D8F1CBD82EA0068D522 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		09A27D911CBD84070068D522 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		09A27D931CBD85E90068D522 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
-		09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
-		09B0B2711CBD57CD00F5CF1A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7B938ECE1CBD34C10041DAB9 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		7BB250BC1CB85C1000994D58 /* GoldenGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BB250BF1CB85C1000994D58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BB250C11CB85C1000994D58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +37,11 @@
 		7BB250CB1CB85C1000994D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA50FEC905ABB4EE7E11B4AB /* Pods-GoldenGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenGram/Pods-GoldenGram.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB0D0CCF7017E8B693D89C9 /* Pods-GoldenGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenGram/Pods-GoldenGram.release.xcconfig"; sourceTree = "<group>"; };
+		CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
+		CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD53E0201CBD93FA0084EFEA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CD53E0221CBD940A0084EFEA /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CD53E0241CBD94390084EFEA /* DownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09B0B2721CBD57CD00F5CF1A /* CoreImage.framework in Frameworks */,
 				511E9CA20671FA285F1F61FD /* Pods_GoldenGram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,16 +77,19 @@
 		7BB250BE1CB85C1000994D58 /* GoldenGram */ = {
 			isa = PBXGroup;
 			children = (
-				7BB250BF1CB85C1000994D58 /* AppDelegate.swift */,
+				7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */,
+				7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */,
+				CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */,
+				CD53E0221CBD940A0084EFEA /* FeedViewController.swift */,
+				CD53E0241CBD94390084EFEA /* DownloadViewController.swift */,
+				CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */,
 				7BB250C11CB85C1000994D58 /* ViewController.swift */,
-				09B0B26F1CBD562900F5CF1A /* PhotoUploadViewController.swift */,
-				09A27D8D1CBD6C890068D522 /* DownloadViewController.swift */,
+				CD53E0201CBD93FA0084EFEA /* Post.swift */,
+				7B938ECE1CBD34C10041DAB9 /* BaseService.swift */,
+				7BB250BF1CB85C1000994D58 /* AppDelegate.swift */,
 				7BB250C31CB85C1000994D58 /* Main.storyboard */,
-				09A27D911CBD84070068D522 /* FeedViewController.swift */,
-				09A27D931CBD85E90068D522 /* PostCollectionViewCell.swift */,
-				09A27D8F1CBD82EA0068D522 /* Post.swift */,
-				7BB250C61CB85C1000994D58 /* Assets.xcassets */,
 				7BB250C81CB85C1000994D58 /* LaunchScreen.storyboard */,
+				7BB250C61CB85C1000994D58 /* Assets.xcassets */,
 				7BB250CB1CB85C1000994D58 /* Info.plist */,
 			);
 			path = GoldenGram;
@@ -101,7 +107,6 @@
 		8B82FAB9F75871D40C94B84A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				09B0B2711CBD57CD00F5CF1A /* CoreImage.framework */,
 				258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */,
 			);
 			name = Frameworks;
@@ -142,7 +147,6 @@
 				TargetAttributes = {
 					7BB250BB1CB85C1000994D58 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 4DLHFFRA86;
 					};
 				};
 			};
@@ -231,12 +235,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BB250C21CB85C1000994D58 /* ViewController.swift in Sources */,
+				CD53E0231CBD940A0084EFEA /* FeedViewController.swift in Sources */,
 				7BB250C01CB85C1000994D58 /* AppDelegate.swift in Sources */,
-				09A27D8E1CBD6C890068D522 /* DownloadViewController.swift in Sources */,
-				09B0B2701CBD562900F5CF1A /* PhotoUploadViewController.swift in Sources */,
-				09A27D921CBD84070068D522 /* FeedViewController.swift in Sources */,
-				09A27D941CBD85E90068D522 /* PostCollectionViewCell.swift in Sources */,
-				09A27D901CBD82EA0068D522 /* Post.swift in Sources */,
+				CD53E01D1CBD93E60084EFEA /* PhotoUploadViewController.swift in Sources */,
+				CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */,
+				7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */,
+				7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */,
+				CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */,
+				CD53E0251CBD94390084EFEA /* DownloadViewController.swift in Sources */,
+				7B938ECB1CBC3B050041DAB9 /* CreateUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +357,6 @@
 			baseConfigurationReference = AA50FEC905ABB4EE7E11B4AB /* Pods-GoldenGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";
@@ -363,7 +369,6 @@
 			baseConfigurationReference = CAB0D0CCF7017E8B693D89C9 /* Pods-GoldenGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";

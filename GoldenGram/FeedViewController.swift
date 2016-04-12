@@ -27,7 +27,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PostID", forIndexPath: indexPath) as! PostCollectionViewCell
         let post = posts![indexPath.row];
-        cell.postImageView.image = post.photo
+//        cell.postImageView.image = UIImage(post.photo
         cell.userButton.titleLabel?.text = post.username
         cell.likesButton.titleLabel!.text = String(format: "Likes: %i", post.likes)
         cell.commentsTextView.text = post.comments
