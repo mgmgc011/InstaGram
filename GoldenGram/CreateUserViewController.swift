@@ -33,6 +33,7 @@ class CreateUserViewController: UIViewController {
         let firstname = firstNameField.text
         let lastname = lastNameField.text
         let dob = dateOfBirthField.text
+        let post = [Post]()
         
         if email != "" && password == confirmpassword && username != "" && firstname != "" && lastname != "" && dob != "" {
             FIREBASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, authData) -> Void in
@@ -40,7 +41,7 @@ class CreateUserViewController: UIViewController {
                     FIREBASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
                         if error == nil {
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                            let userDictionary = ["first_name": firstname! as String, "last_name": lastname! as String, "user_name": username! as String, "date_of_birth": dob! as String]
+                            let userDictionary = ["first_name": firstname! as String, "last_name": lastname! as String, "user_name": username! as String, "date_of_birth": dob! as String, "post": post ]
                             let userRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
                             userRef.setValue(userDictionary)
                             print("Account Created")

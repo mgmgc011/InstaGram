@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        print(CURRENT_USER)
 
     }
     @IBAction func logInButtonTapped(sender: UIButton) {

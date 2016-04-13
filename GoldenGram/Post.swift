@@ -13,19 +13,20 @@ import Firebase
 
 class Post: NSObject {
 
-    var username = String()
+//    var username = String()
     var userID = String()
     var comments = [String]()
     var likes = Int()
     var photo = String()
 
     init(snapshot: FDataSnapshot) {
-        //come back and make sure keys are consistent
+        
+        
 //        username = dictionary.objectForKey("username") as! String
-//        userID = dictionary.objectForKey("userID") as! String
-//        comments = dictionary.objectForKey("comments") as! [String]
-//        likes = dictionary.objectForKey("likes") as! Int
-//        photo = dictionary.objectForKey("photo") as! String
+        userID = snapshot.value.objectForKey("userID") as! String
+        comments = snapshot.value.objectForKey("comments") as! [String]
+        likes = snapshot.value.objectForKey("likes") as! Int
+        photo = snapshot.value.objectForKey("image") as! String
     }
 //    private var _postDescription: String!
 //    private var _imageUrl: String?

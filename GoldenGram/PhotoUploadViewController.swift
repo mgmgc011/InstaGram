@@ -45,18 +45,13 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     //ACCESS PHOTO LIBRARY
     @IBAction func photoLibraryButtonTapped(sender: AnyObject) {
         picker.sourceType = .PhotoLibrary
-        
         presentViewController(picker, animated: true, completion: nil)
-        
     }
     
     //ACCESS CAMERA
     @IBAction func cameraButtonTapped(sender: AnyObject) {
         if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-
-
             picker.sourceType = .Camera
-            
             presentViewController(picker, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: .Alert)
@@ -83,12 +78,8 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle,
-                                                    reuseIdentifier: "filterCell")
-        
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "filterCell")
         cell.textLabel!.text = items[indexPath.row]
-        
-        
         return cell
     }
     
@@ -113,8 +104,7 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func uploadPhotoTapped(sender: AnyObject) {
-//        let ref = Firebase(url:"https://torrid-heat-209.firebaseio.com")
-//        ref.setValue(coversion(imageView.image!))
+
         
     
         
@@ -122,11 +112,15 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
        let ref = FIREBASE_REF.childByAppendingPath("posts").childByAutoId()
         ref.setValue(postDict)
         
-//            self.post.photo = self.coversion(self.imageView.image!)
-            
-//            })
-//        let post = Firebase.ds.REF_POSTS.childByAutoId()
-//        post.set
+        
+        
+        let postId = ref.key
+        let userRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+        let postUserRef = userRef.childByAppendingPath("userPosts")
+        let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
+        postUserRef.updateChildValues(postIDDict)
+        
+
         
     }
     
