@@ -46,7 +46,6 @@ class CreateUserViewController: UIViewController {
                             userRef.setValue(userDictionary)
                             print("Account Created")
                             self.performSegueWithIdentifier("CreateSegue", sender: self)
-//                            self.dismissViewControllerAnimated(true, completion: nil)
                         } else {
                             print(error)
                             print("inavlid email1")

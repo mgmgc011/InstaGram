@@ -28,7 +28,6 @@ class ViewController: UIViewController {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     print ("logged in")
                     self.performSegueWithIdentifier("logInSegue", sender: self)
-                    
                 } else {
                     let alert = UIAlertController(title: "Incorrect email or password", message: "try again", preferredStyle: .Alert)
                     let action = UIAlertAction(title: "Cancel", style: .Default , handler: nil)

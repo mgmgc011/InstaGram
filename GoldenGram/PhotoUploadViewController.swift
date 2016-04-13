@@ -24,22 +24,13 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     //FILTER NAMES AND TYPES
     var items: [String] = ["None", "Tonality", "Noir", "Ansel Adams", "Dark","Dots", "Sepia", "Fade", "Chrome", "Process", "Transfer", "Instant","Color Invert"]
-    
     var filterNames: [String] = ["CIColorControls", "CIPhotoEffectTonal","CIPhotoEffectNoir","CIMaximumComponent","CIMinimumComponent","CIDotScreen", "CISepiaTone", "CIPhotoEffectFade", "CIPhotoEffectChrome", "CIPhotoEffectProcess", "CIPhotoEffectTransfer", "CIPhotoEffectInstant", "CIColorInvert"]
-    
-    
     var originalImage = UIImage()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        
     }
     
     //ACCESS PHOTO LIBRARY
@@ -54,7 +45,7 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
             picker.sourceType = .Camera
             presentViewController(picker, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Camera Not Found", message: "Please select a photo from library", preferredStyle: .Alert)
             let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)
@@ -67,9 +58,6 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
         originalImage = imageView.image!
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    
     
     //LIST OF FILTERS IN TABLE
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,43 +73,55 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let CIfilterName = filterNames[indexPath.row]
-        print(CIfilterName)
-        
-        let ciContext = CIContext(options: nil)
-        let startImage = CIImage(image: originalImage)
-        
-        let filter = CIFilter(name: CIfilterName)
-        filter!.setDefaults()
-        
-        filter!.setValue(startImage, forKey: kCIInputImageKey)
-        let filteredImageData = filter!.valueForKey(kCIOutputImageKey) as! CIImage
-        let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent)
-        
-        imageView.image = UIImage(CGImage: filteredImageRef);
+        if imageView.image != nil {
+            let CIfilterName = filterNames[indexPath.row]
+            print(CIfilterName)
+            let ciContext = CIContext(options: nil)
+            let startImage = CIImage(image: originalImage)
+            let filter = CIFilter(name: CIfilterName)
+            filter!.setDefaults()
+            filter!.setValue(startImage, forKey: kCIInputImageKey)
+            let filteredImageData = filter!.valueForKey(kCIOutputImageKey) as! CIImage
+            let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent)
+            imageView.image = UIImage(CGImage: filteredImageRef);
+        } else {
+            let alert = UIAlertController(title: "Photo not detected", message: "Please select a photo first", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+        }
         
     }
     
     @IBAction func uploadPhotoTapped(sender: AnyObject) {
-
-        
-    
-        
-        let postDict = ["image" : coversion(imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String]
-       let ref = FIREBASE_REF.childByAppendingPath("posts").childByAutoId()
-        ref.setValue(postDict)
-        
-        
-        
-        let postId = ref.key
-        let userRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
-        let postUserRef = userRef.childByAppendingPath("userPosts")
-        let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
-        postUserRef.updateChildValues(postIDDict)
-        
-
-        
+        if imageView.image != nil {
+            
+            let userRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
+            let postRef = FIREBASE_REF.childByAppendingPath("posts").childByAutoId()
+            let postId = postRef.key
+            
+            
+            userRef.observeEventType(.Value, withBlock: { snapshot in
+                let username = snapshot.value.objectForKey("user_name")
+                print(snapshot.value.objectForKey("user_name"))
+                let postDict = ["image" : self.coversion(self.imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, "user_name" : username as! String]
+                postRef.setValue(postDict)
+                
+            })
+            let postUserRef = userRef.childByAppendingPath("userPosts")
+            let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
+            postUserRef.updateChildValues(postIDDict)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+            presentViewController(vc, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "No Photo Selected", message: "Please select a photo from library \n or Take a photo!", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func coversion(image: UIImage) -> String {

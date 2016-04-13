@@ -20,7 +20,6 @@
 		CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */; };
 		CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0201CBD93FA0084EFEA /* Post.swift */; };
 		CD53E0231CBD940A0084EFEA /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0221CBD940A0084EFEA /* FeedViewController.swift */; };
-		CD53E0251CBD94390084EFEA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0241CBD94390084EFEA /* DownloadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +40,6 @@
 		CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
 		CD53E0201CBD93FA0084EFEA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CD53E0221CBD940A0084EFEA /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		CD53E0241CBD94390084EFEA /* DownloadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,6 @@
 				7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */,
 				CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */,
 				CD53E0221CBD940A0084EFEA /* FeedViewController.swift */,
-				CD53E0241CBD94390084EFEA /* DownloadViewController.swift */,
 				CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */,
 				7BB250C11CB85C1000994D58 /* ViewController.swift */,
 				CD53E0201CBD93FA0084EFEA /* Post.swift */,
@@ -147,7 +144,7 @@
 				TargetAttributes = {
 					7BB250BB1CB85C1000994D58 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 695P6D89C6;
+						DevelopmentTeam = 4DLHFFRA86;
 					};
 				};
 			};
@@ -243,7 +240,6 @@
 				7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */,
 				7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */,
 				CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */,
-				CD53E0251CBD94390084EFEA /* DownloadViewController.swift in Sources */,
 				7B938ECB1CBC3B050041DAB9 /* CreateUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

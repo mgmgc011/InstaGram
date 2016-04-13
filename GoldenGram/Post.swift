@@ -18,11 +18,12 @@ class Post: NSObject {
     var comments = [String]()
     var likes = Int()
     var photo = String()
+    var username = String()
 
     init(snapshot: FDataSnapshot) {
         
         
-//        username = dictionary.objectForKey("username") as! String
+        username = snapshot.value.objectForKey("user_name") as! String
         userID = snapshot.value.objectForKey("userID") as! String
         comments = snapshot.value.objectForKey("comments") as! [String]
         likes = snapshot.value.objectForKey("likes") as! Int
