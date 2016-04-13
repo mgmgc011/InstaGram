@@ -44,13 +44,20 @@ class CreateUserViewController: UIViewController {
                             let userRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String)
                             userRef.setValue(userDictionary)
                             print("Account Created")
-                            self.dismissViewControllerAnimated(true, completion: nil)
+                            self.performSegueWithIdentifier("CreateSegue", sender: self)
+//                            self.dismissViewControllerAnimated(true, completion: nil)
                         } else {
                             print(error)
+                            print("inavlid email1")
                         }
                     })
                 } else {
+                    let alert = UIAlertController(title: "Enter Valid Email", message: nil, preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "Okay", style: .Default , handler: nil)
+                    alert.addAction(action)
+                    self.presentViewController(alert, animated: true, completion: nil)
                     print(error)
+                    print("invalid email2")
                 }
             })
         } else {
@@ -64,4 +71,7 @@ class CreateUserViewController: UIViewController {
 
     
 }
+    @IBAction func cancelButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

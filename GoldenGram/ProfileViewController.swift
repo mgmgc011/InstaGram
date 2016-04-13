@@ -19,18 +19,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var fullname = fullNameLabel.text
-       FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value) { (snapshot) in
-            print(snapshot.value)
-//        self.fullNameLabel.text = "\(snapshot.valueForKey("first_name")) \(snapshot.valueForKey("last_name"))"
-//        self.dateOfBirthLabel.text = snapshot.valueForKey("date_of_birth")
-        }
-//        fullname = CURRENT_USER.authData.valueForKey("first_name") as? String
-//        fullname == CURRENT_USER.valueForKey("first_name") as? String
-//        print(CURRENT_USER.valueForKey("first_name_"))
+        FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: {(snapshot) in
+//            print(snapshot.value)
+//            print(snapshot.value.objectForKey("first_name"))
+            let first = snapshot.value.objectForKey("first_name") as! String
+            let last = snapshot.value.objectForKey("last_name") as! String
+            self.fullNameLabel.text = "\(first) \(last)"
+        })
+        
 
     }
 
+    @IBAction func logOutButton(sender: AnyObject) {
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        dismissViewControllerAnimated(false, completion: nil)
+    }
     
 
 }

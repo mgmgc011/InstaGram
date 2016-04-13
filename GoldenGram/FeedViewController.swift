@@ -30,7 +30,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        cell.postImageView.image = UIImage(post.photo
         cell.userButton.titleLabel?.text = post.username
         cell.likesButton.titleLabel!.text = String(format: "Likes: %i", post.likes)
-        cell.commentsTextView.text = post.comments
+//        cell.commentsTextView.text = post.comments as [String]
         // use post.userID to segue to right profileViewController
         return cell
         

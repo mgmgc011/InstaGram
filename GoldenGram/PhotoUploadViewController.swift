@@ -11,12 +11,16 @@ import CoreImage
 import Firebase
 
 class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var photoLibrary: UIButton!
+    
+    var picker = UIImagePickerController()
+    var post : Post!
+    
     
     //FILTER NAMES AND TYPES
     var items: [String] = ["None", "Tonality", "Noir", "Ansel Adams", "Dark","Dots", "Sepia", "Fade", "Chrome", "Process", "Transfer", "Instant","Color Invert"]
@@ -24,20 +28,22 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     var filterNames: [String] = ["CIColorControls", "CIPhotoEffectTonal","CIPhotoEffectNoir","CIMaximumComponent","CIMinimumComponent","CIDotScreen", "CISepiaTone", "CIPhotoEffectFade", "CIPhotoEffectChrome", "CIPhotoEffectProcess", "CIPhotoEffectTransfer", "CIPhotoEffectInstant", "CIColorInvert"]
     
     
-    var originalImage : UIImage = UIImage(named:"flower.jpg")!
+    var originalImage = UIImage()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker.delegate = self
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
     
     //ACCESS PHOTO LIBRARY
-    @IBAction func photoLibraryButtonTapped(sender: UIButton) {
-        
-        let picker = UIImagePickerController()
-        picker.delegate = self
+    @IBAction func photoLibraryButtonTapped(sender: AnyObject) {
         picker.sourceType = .PhotoLibrary
         
         presentViewController(picker, animated: true, completion: nil)
@@ -45,13 +51,19 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     //ACCESS CAMERA
-    @IBAction func cameraButtonTapped(sender: UIButton) {
-        
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .Camera
-        
-        presentViewController(picker, animated: true, completion: nil)
+    @IBAction func cameraButtonTapped(sender: AnyObject) {
+        if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
+
+
+            picker.sourceType = .Camera
+            
+            presentViewController(picker, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Camera Not Found", message: nil, preferredStyle: .Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alert.addAction(action)
+            presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -99,11 +111,22 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
         imageView.image = UIImage(CGImage: filteredImageRef);
         
     }
-
-    @IBAction func uploadPhotoTapped(sender: UIButton) {
-        let ref = Firebase(url:"https://torrid-heat-209.firebaseio.com")
-        ref.setValue(coversion(imageView.image!))
+    
+    @IBAction func uploadPhotoTapped(sender: AnyObject) {
+//        let ref = Firebase(url:"https://torrid-heat-209.firebaseio.com")
+//        ref.setValue(coversion(imageView.image!))
         
+    
+        
+        let postDict = ["image" : coversion(imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String]
+       let ref = FIREBASE_REF.childByAppendingPath("posts").childByAutoId()
+        ref.setValue(postDict)
+        
+//            self.post.photo = self.coversion(self.imageView.image!)
+            
+//            })
+//        let post = Firebase.ds.REF_POSTS.childByAutoId()
+//        post.set
         
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gp1-xB-ST6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -85,6 +85,16 @@
                                     <rect key="frame" x="99" y="119" width="203" height="30"/>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lW-em-8F6">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="176" y="550" width="48" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="cancelButton:" destination="t95-eK-sbE" eventType="touchUpInside" id="l0B-uD-zGq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -97,6 +107,7 @@
                                 <exclude reference="QfS-QW-AID"/>
                                 <exclude reference="gAR-WA-acJ"/>
                                 <exclude reference="TWx-1u-qUM"/>
+                                <exclude reference="7lW-em-8F6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -109,6 +120,7 @@
                                 <include reference="QfS-QW-AID"/>
                                 <include reference="gAR-WA-acJ"/>
                                 <include reference="TWx-1u-qUM"/>
+                                <include reference="7lW-em-8F6"/>
                             </mask>
                         </variation>
                     </view>
@@ -120,16 +132,17 @@
                         <outlet property="lastNameField" destination="QfS-QW-AID" id="JrU-fz-LPl"/>
                         <outlet property="passwordField" destination="Z6t-Mc-OMV" id="PQu-gA-Ase"/>
                         <outlet property="userNameField" destination="3is-r0-pXf" id="kSO-xW-lge"/>
+                        <segue destination="NqB-T3-ywx" kind="presentation" identifier="CreateSegue" id="Gej-iD-KQE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBZ-dj-Q7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1995" y="-315"/>
         </scene>
-        <!--Log In-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GoldenGram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInViewController" title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="GoldenGram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O12-XN-rZA"/>
                         <viewControllerLayoutGuide type="bottom" id="v9O-uX-AhG"/>
@@ -216,7 +229,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flower" translatesAutoresizingMaskIntoConstraints="NO" id="TfZ-8R-g5G">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfZ-8R-g5G">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="bsu-bf-hh7"/>
@@ -228,7 +241,8 @@
                                         <exclude reference="sby-Vp-Oce"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="103" width="360" height="225"/>
                                     <mask key="constraints">
                                         <include reference="bsu-bf-hh7"/>
                                         <include reference="sby-Vp-Oce"/>
@@ -238,6 +252,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fl-JQ-gXA">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Camera"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="173" y="336" width="54" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="cameraButtonTapped:" destination="DyW-1w-BsD" eventType="touchUpInside" id="oQD-wz-UVN"/>
                                 </connections>
@@ -255,6 +272,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="455" width="400" height="96"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="DyW-1w-BsD" id="ZYA-py-WF3"/>
                                     <outlet property="delegate" destination="DyW-1w-BsD" id="9dp-8q-alJ"/>
@@ -263,6 +283,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n27-CB-Lhw">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Upload Picture!"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="147" y="400" width="106" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="uploadPhotoTapped:" destination="DyW-1w-BsD" eventType="touchUpInside" id="oJz-Cg-gh0"/>
                                 </connections>
@@ -270,6 +293,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCW-3W-ibG">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Photo Library"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="154" y="369" width="92" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="photoLibraryButtonTapped:" destination="DyW-1w-BsD" eventType="touchUpInside" id="gNU-yA-Hga"/>
                                 </connections>
@@ -277,6 +303,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvo-xe-mJ6">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Next"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="343" y="72" width="32" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="HKF-Mq-bJK" kind="show" id="Oob-ie-osj"/>
                                 </connections>
@@ -413,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAE-pW-fne" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="1131"/>
+            <point key="canvasLocation" x="2698.5" y="1131"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="APX-TU-ZS8">
@@ -500,6 +529,16 @@
                                     <rect key="frame" x="20" y="72" width="102" height="106"/>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abv-mu-qyC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Log Out"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="330" y="20" width="55" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="logOutButton:" destination="s30-gE-dCw" eventType="touchUpInside" id="2R7-K4-KCR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -511,6 +550,7 @@
                                 <exclude reference="4zY-ul-3IE"/>
                                 <exclude reference="JXI-ul-ET3"/>
                                 <exclude reference="LEr-Ap-C3z"/>
+                                <exclude reference="Abv-mu-qyC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -522,6 +562,7 @@
                                 <include reference="4zY-ul-3IE"/>
                                 <include reference="JXI-ul-ET3"/>
                                 <include reference="LEr-Ap-C3z"/>
+                                <include reference="Abv-mu-qyC"/>
                             </mask>
                         </variation>
                     </view>
@@ -621,6 +662,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="487"/>
+                                </variation>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -681,26 +725,8 @@
             </objects>
             <point key="canvasLocation" x="1995" y="386"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="whe-ZP-Whs">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gp1-xB-ST6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmz-Rc-ayj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IDe-uk-TrU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VjJ-PP-Vov" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="525" y="386"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="flower" width="1920" height="1080"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0wC-Cc-SV4"/>
+    </inferredMetricsTieBreakers>
 </document>
