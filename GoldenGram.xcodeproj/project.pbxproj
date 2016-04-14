@@ -17,6 +17,7 @@
 		7BB250C51CB85C1000994D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C31CB85C1000994D58 /* Main.storyboard */; };
 		7BB250C71CB85C1000994D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C61CB85C1000994D58 /* Assets.xcassets */; };
 		7BB250CA1CB85C1000994D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BB250C81CB85C1000994D58 /* LaunchScreen.storyboard */; };
+		7BE9957D1CC01D8000AFD4F2 /* PhotoUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE9957C1CC01D8000AFD4F2 /* PhotoUploadCollectionViewCell.swift */; };
 		CD53E01D1CBD93E60084EFEA /* PhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */; };
 		CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */; };
 		CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD53E0201CBD93FA0084EFEA /* Post.swift */; };
@@ -36,6 +37,7 @@
 		7BB250C61CB85C1000994D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BB250C91CB85C1000994D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BB250CB1CB85C1000994D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BE9957C1CC01D8000AFD4F2 /* PhotoUploadCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA50FEC905ABB4EE7E11B4AB /* Pods-GoldenGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenGram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenGram/Pods-GoldenGram.debug.xcconfig"; sourceTree = "<group>"; };
 		CAB0D0CCF7017E8B693D89C9 /* Pods-GoldenGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenGram.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenGram/Pods-GoldenGram.release.xcconfig"; sourceTree = "<group>"; };
 		CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoUploadViewController.swift; sourceTree = "<group>"; };
@@ -82,10 +84,11 @@
 				7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */,
 				7B0355F81CBF1FB80026E005 /* ProfileCollectionViewCell.swift */,
 				CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */,
+				7BE9957C1CC01D8000AFD4F2 /* PhotoUploadCollectionViewCell.swift */,
 				CD53E0221CBD940A0084EFEA /* FeedViewController.swift */,
 				CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */,
-				CD53E0201CBD93FA0084EFEA /* Post.swift */,
 				7B938ECE1CBD34C10041DAB9 /* BaseService.swift */,
+				CD53E0201CBD93FA0084EFEA /* Post.swift */,
 				7BB250BF1CB85C1000994D58 /* AppDelegate.swift */,
 				7BB250C31CB85C1000994D58 /* Main.storyboard */,
 				7BB250C81CB85C1000994D58 /* LaunchScreen.storyboard */,
@@ -243,6 +246,7 @@
 				CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */,
 				7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */,
 				7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */,
+				7BE9957D1CC01D8000AFD4F2 /* PhotoUploadCollectionViewCell.swift in Sources */,
 				CD53E01F1CBD93F20084EFEA /* PostCollectionViewCell.swift in Sources */,
 				7B938ECB1CBC3B050041DAB9 /* CreateUserViewController.swift in Sources */,
 			);
@@ -363,7 +367,7 @@
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGramz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -380,7 +384,7 @@
 				INFOPLIST_FILE = GoldenGram/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGram";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mobile-Makers.GoldenGramz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -17,11 +17,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print(NSUserDefaults.standardUserDefaults())
         let userPostRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath("userPosts")
-        
-        
         userPostRef.observeEventType(.Value, withBlock: { snapshot1 in
             let postArray = snapshot1.value.allValues as? [String]
             if postArray != nil {
@@ -42,6 +38,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         })
     }
     
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -55,8 +52,8 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.likesButton.setTitle("Likes: \(post.likes)", forState: .Normal)
         cell.likesButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         return cell
-        
     }
+    
     func coversion(post: String) -> UIImage {
         let imageData = NSData(base64EncodedString: post, options: [] )
         let image = UIImage(data: imageData!)
@@ -66,7 +63,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func scrollViewDidScroll(scrollView: UIScrollView) {
         guard let collectionView = self.feedCollectionView else {return}
         guard let visibleCells = collectionView.visibleCells() as? [PostCollectionViewCell] else
-            {return}
+        {return}
         for collectionViewCell in visibleCells {
             let yOffSet = ((collectionView.contentOffset.y - collectionViewCell.frame.origin.y) /
                 imageHeight) * offSetSpeed
