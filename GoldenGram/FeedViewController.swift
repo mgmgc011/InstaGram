@@ -54,17 +54,24 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         cell.userButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         cell.likesButton.setTitle("Likes: \(post.likes)", forState: .Normal)
         cell.likesButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-
-//        cell.likesButton.titleLabel!.text = String(format: "Likes: %i", post.likes)
-        //        cell.commentsTextView.text = post.comments as [String]
         return cell
         
     }
     func coversion(post: String) -> UIImage {
         let imageData = NSData(base64EncodedString: post, options: [] )
         let image = UIImage(data: imageData!)
-        //        self.downloadImageView.image = image
         return image!
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        guard let collectionView = self.feedCollectionView else {return}
+        guard let visibleCells = collectionView.visibleCells() as? [PostCollectionViewCell] else
+            {return}
+        for collectionViewCell in visibleCells {
+            let yOffSet = ((collectionView.contentOffset.y - collectionViewCell.frame.origin.y) /
+                imageHeight) * offSetSpeed
+            collectionViewCell.offset(CGPointMake(0.0, yOffSet))
+        }
     }
     
     

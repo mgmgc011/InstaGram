@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		511E9CA20671FA285F1F61FD /* Pods_GoldenGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */; };
+		7B0355F91CBF1FB80026E005 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0355F81CBF1FB80026E005 /* ProfileCollectionViewCell.swift */; };
 		7B938ECB1CBC3B050041DAB9 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */; };
 		7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */; };
 		7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B938ECE1CBD34C10041DAB9 /* BaseService.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		258975807BED1D5C2988EC65 /* Pods_GoldenGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoldenGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0355F81CBF1FB80026E005 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7B938ECE1CBD34C10041DAB9 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -75,12 +77,13 @@
 		7BB250BE1CB85C1000994D58 /* GoldenGram */ = {
 			isa = PBXGroup;
 			children = (
+				7BB250C11CB85C1000994D58 /* ViewController.swift */,
 				7B938ECA1CBC3B050041DAB9 /* CreateUserViewController.swift */,
 				7B938ECC1CBC4C780041DAB9 /* ProfileViewController.swift */,
+				7B0355F81CBF1FB80026E005 /* ProfileCollectionViewCell.swift */,
 				CD53E01C1CBD93E60084EFEA /* PhotoUploadViewController.swift */,
 				CD53E0221CBD940A0084EFEA /* FeedViewController.swift */,
 				CD53E01E1CBD93F20084EFEA /* PostCollectionViewCell.swift */,
-				7BB250C11CB85C1000994D58 /* ViewController.swift */,
 				CD53E0201CBD93FA0084EFEA /* Post.swift */,
 				7B938ECE1CBD34C10041DAB9 /* BaseService.swift */,
 				7BB250BF1CB85C1000994D58 /* AppDelegate.swift */,
@@ -144,7 +147,7 @@
 				TargetAttributes = {
 					7BB250BB1CB85C1000994D58 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 4DLHFFRA86;
+						DevelopmentTeam = 695P6D89C6;
 					};
 				};
 			};
@@ -236,6 +239,7 @@
 				CD53E0231CBD940A0084EFEA /* FeedViewController.swift in Sources */,
 				7BB250C01CB85C1000994D58 /* AppDelegate.swift in Sources */,
 				CD53E01D1CBD93E60084EFEA /* PhotoUploadViewController.swift in Sources */,
+				7B0355F91CBF1FB80026E005 /* ProfileCollectionViewCell.swift in Sources */,
 				CD53E0211CBD93FA0084EFEA /* Post.swift in Sources */,
 				7B938ECD1CBC4C780041DAB9 /* ProfileViewController.swift in Sources */,
 				7B938ECF1CBD34C10041DAB9 /* BaseService.swift in Sources */,
