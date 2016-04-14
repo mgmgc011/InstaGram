@@ -106,6 +106,7 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
                 print(snapshot.value.objectForKey("user_name"))
                 
                 let postDict = ["image" : self.coversion(self.imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, "user_name" : username as! String]
+                
                 postRef.setValue(postDict, withCompletionBlock: { (error:NSError?, ref:Firebase!) in
                     if (error != nil) {
                         print("Data could not be saved.")
