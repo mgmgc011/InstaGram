@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var dateOfBirthLabel: UILabel!
     
     var posts = [Post]()
+    var images = [UIImage]()
     @IBOutlet weak var profileCollectionView: UICollectionView!
     
     
@@ -23,8 +24,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileCollectionView.delegate = self
-        profileCollectionView.dataSource = self
+    
         FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: {(snapshot) in
             let first = snapshot.value.objectForKey("first_name") as! String
             let last = snapshot.value.objectForKey("last_name") as! String
@@ -32,7 +32,36 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             self.dateOfBirthLabel.text = snapshot.value.objectForKey("date_of_birth") as? String
             
         })
+        
+        let userPostRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath("userPosts")
+        
+        
+        userPostRef.observeEventType(.Value, withBlock: { snapshot1 in
+            let postArray = snapshot1.value.allValues as? [String]
+            if postArray != nil {
+                for address: String in postArray! {
+                    let postRef = FIREBASE_REF.childByAppendingPath("posts").childByAppendingPath(address)
+                    postRef.observeEventType(.Value, withBlock: { snapshot2 in
+                        let aPost = Post.init(snapshot: snapshot2)
+
+                        self.posts.append(aPost)
+                        if self.posts.count == postArray!.count {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.profileCollectionView.reloadData()
+                            }
+                        }
+                    })
+                }
+            }
+        })
+        
+        
+    
+
         profileCollectionView.reloadData()
+        
+        
+        
     }
     
     @IBAction func logOutButton(sender: UIButton) {
@@ -48,20 +77,18 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(posts.count)
         return posts.count
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CellID", forIndexPath: indexPath) as! ProfileCollectionViewCell
-
-        FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: {(snapshot) in
-
-            var image = snapshot.value.objectForKey("image")
-            let post = self.posts[indexPath.row]
-            image = self.conversion(post.photo)
-            cell.imageView.image = image as? UIImage
-
-        })
+        let post = posts[indexPath.row]
+        cell.imageView.image = conversion(post.photo)
+        
+        
+        
         return cell
 
     }
