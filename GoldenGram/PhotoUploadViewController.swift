@@ -104,34 +104,48 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
             userRef.observeEventType(.Value, withBlock: { snapshot in
                 let username = snapshot.value.objectForKey("user_name")
                 print(snapshot.value.objectForKey("user_name"))
-                let postDict = ["image" : self.coversion(self.imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, "user_name" : username as! String]
-                postRef.setValue(postDict)
                 
+                let postDict = ["image" : self.coversion(self.imageView.image!) , "likes" : 0 as Int, "comments" : ["test"] as NSArray, "userID" : NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String, "user_name" : username as! String]
+                postRef.setValue(postDict, withCompletionBlock: { (error:NSError?, ref:Firebase!) in
+                    if (error != nil) {
+                        print("Data could not be saved.")
+                    } else {
+                        print("Data saved successfully!")
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+                            self.presentViewController(vc, animated: true, completion: nil)
+                            
+                        }
+                    }
+                })
             })
-            let postUserRef = userRef.childByAppendingPath("userPosts")
-            let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
-            postUserRef.updateChildValues(postIDDict)
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
-            presentViewController(vc, animated: true, completion: nil)
             
-        } else {
-            let alert = UIAlertController(title: "No Photo Selected", message: "Please select a photo from library \n or Take a photo!", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
-            alert.addAction(action)
-            presentViewController(alert, animated: true, completion: nil)
-        }
+            
+
+        let postUserRef = userRef.childByAppendingPath("userPosts")
+        let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
+        postUserRef.updateChildValues(postIDDict)
+        
+        
+        
+    } else {
+    let alert = UIAlertController(title: "No Photo Selected", message: "Please select a photo from library \n or Take a photo!", preferredStyle: .Alert)
+    let action = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+    alert.addAction(action)
+    presentViewController(alert, animated: true, completion: nil)
     }
-    
-    func coversion(image: UIImage) -> String {
-        let data = UIImageJPEGRepresentation(image, 0.5)
-        let base64String = data!.base64EncodedStringWithOptions([])
-        return base64String
-    }
-    
-    
-    
-    
-    
+}
+
+func coversion(image: UIImage) -> String {
+    let data = UIImageJPEGRepresentation(image, 0.5)
+    let base64String = data!.base64EncodedStringWithOptions([])
+    return base64String
+}
+
+
+
+
+
 }
