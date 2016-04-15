@@ -128,6 +128,10 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
         let postUserRef = userRef.childByAppendingPath("userPosts")
         let postIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
         postUserRef.updateChildValues(postIDDict)
+            
+            let allPostRef = userRef.childByAppendingPath("allPosts")
+            let allPostIDDict = [String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : postId]
+            allPostRef.updateChildValues(allPostIDDict)
         
         
         

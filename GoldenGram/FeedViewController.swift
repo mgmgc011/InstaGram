@@ -19,7 +19,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         
         print(NSUserDefaults.standardUserDefaults())
-        let userPostRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath("userPosts")
+        let userPostRef = FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath("allPosts")
         
         
         userPostRef.observeEventType(.Value, withBlock: { snapshot1 in
@@ -40,6 +40,10 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
                 }
             }
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.feedCollectionView.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

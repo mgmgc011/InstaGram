@@ -15,8 +15,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var dateOfBirthLabel: UILabel!
     
+
     var posts = [Post]()
     var images = [UIImage]()
+    
     @IBOutlet weak var profileCollectionView: UICollectionView!
     
     
@@ -24,6 +26,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+            
     
         FIREBASE_REF.childByAppendingPath("users").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).observeEventType(.Value, withBlock: {(snapshot) in
             let first = snapshot.value.objectForKey("first_name") as! String
@@ -54,12 +58,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }
         })
-        
-        
-    
+            
+            
+            profileCollectionView.reloadData()
 
-        profileCollectionView.reloadData()
-        
         
         
     }
