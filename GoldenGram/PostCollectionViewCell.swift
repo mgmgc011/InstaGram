@@ -8,10 +8,17 @@
 
 import UIKit
 
+
+
+protocol LikeAddedDelegate {
+    func likeAdded (cell: PostCollectionViewCell)
+}
+
+
 let imageHeight: CGFloat = 200.0
 let offSetSpeed: CGFloat = 50.0
 
-class PostCollectionViewCell: UICollectionViewCell {
+class PostCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var postImageView: UIImageView!
     
@@ -25,9 +32,25 @@ class PostCollectionViewCell: UICollectionViewCell {
         postImageView.frame = CGRectOffset(self.postImageView.bounds, offset .x, offset .y)
     }
     
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     @IBOutlet weak var userButton: UIButton!
     @IBOutlet weak var commentsTextView: UITextView!
     @IBOutlet weak var likesButton: UIButton!
+    @IBOutlet weak var commentTextField: UITextField!
     
+    
+    var likeDelegate: LikeAddedDelegate?
+    
+    
+    @IBAction func likeButtonTapped(sender: UIButton) {
+        
+        likeDelegate.self?.likeAdded(self)
+        
+        print("tapped")
+    }
     
 }

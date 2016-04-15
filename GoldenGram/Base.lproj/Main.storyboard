@@ -357,7 +357,7 @@
                                     <action selector="cancelButton:" destination="DyW-1w-BsD" eventType="touchUpInside" id="u1C-aA-8ah"/>
                                 </connections>
                             </button>
-                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-Cu-AZi">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-Cu-AZi">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rs1-g1-b3I">
                                     <size key="itemSize" width="150" height="128"/>
@@ -373,27 +373,42 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anselAdams" translatesAutoresizingMaskIntoConstraints="NO" id="RGs-l9-ZXZ">
+                                                <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-GN-jPC">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="128"/>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="bDX-GN-jPC" firstAttribute="leading" secondItem="saB-wj-4GM" secondAttribute="leadingMargin" constant="-8" id="Gzc-mQ-hOH"/>
+                                            <constraint firstItem="bDX-GN-jPC" firstAttribute="top" secondItem="saB-wj-4GM" secondAttribute="topMargin" constant="-8" id="KT3-rt-qiI"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="bDX-GN-jPC" secondAttribute="bottom" constant="-8" id="jDW-f2-PVl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bDX-GN-jPC" secondAttribute="trailing" constant="-8" id="vfP-75-rGN"/>
+                                        </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
-                                                <exclude reference="RGs-l9-ZXZ"/>
+                                                <exclude reference="bDX-GN-jPC"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="Gzc-mQ-hOH"/>
+                                                <exclude reference="KT3-rt-qiI"/>
+                                                <exclude reference="jDW-f2-PVl"/>
+                                                <exclude reference="vfP-75-rGN"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="subviews">
-                                                <include reference="RGs-l9-ZXZ"/>
+                                                <include reference="bDX-GN-jPC"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <include reference="Gzc-mQ-hOH"/>
+                                                <include reference="KT3-rt-qiI"/>
+                                                <include reference="jDW-f2-PVl"/>
+                                                <include reference="vfP-75-rGN"/>
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="imageView" destination="RGs-l9-ZXZ" id="jwk-F3-oFO"/>
+                                            <outlet property="imageView" destination="bDX-GN-jPC" id="GKe-aj-qGh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -401,8 +416,8 @@
                                     <rect key="frame" x="0.0" y="423" width="400" height="128"/>
                                 </variation>
                                 <connections>
-                                    <outlet property="dataSource" destination="DyW-1w-BsD" id="3zS-Mo-04l"/>
-                                    <outlet property="delegate" destination="DyW-1w-BsD" id="53Y-Ty-M2j"/>
+                                    <outlet property="dataSource" destination="DyW-1w-BsD" id="qoo-Zh-wQa"/>
+                                    <outlet property="delegate" destination="DyW-1w-BsD" id="ODB-Fl-mdB"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -584,9 +599,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="192" width="400" height="360"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="s30-gE-dCw" id="Nwv-Zc-2xV"/>
                                     <outlet property="delegate" destination="s30-gE-dCw" id="UtR-qe-DH8"/>
@@ -737,6 +749,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ga-zU-vMZ">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <state key="normal" title="Likes"/>
+                                                    <connections>
+                                                        <action selector="likeButtonTapped:" destination="vmQ-RF-3X6" eventType="touchUpInside" id="ngU-30-R16"/>
+                                                    </connections>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3mi-t3-Imj">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -768,6 +783,9 @@
                                                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="dVK-aE-1E9" id="Am7-Dx-R2M"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -800,22 +818,22 @@
                                                 <exclude reference="mre-T6-MlW"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <exclude reference="0UW-jN-T5K"/>
+                                                <exclude reference="ltl-Y0-KfO"/>
+                                                <exclude reference="wWo-rx-eDO"/>
+                                                <exclude reference="2yD-eF-yFU"/>
+                                                <exclude reference="6Np-uN-C67"/>
+                                                <exclude reference="NBY-NR-WA5"/>
                                                 <exclude reference="2Ux-Xn-HR3"/>
                                                 <exclude reference="fHv-PC-kFy"/>
                                                 <exclude reference="xeH-rl-lDi"/>
                                                 <exclude reference="xna-e4-JwT"/>
-                                                <exclude reference="hhm-U4-ZfF"/>
-                                                <exclude reference="kSf-MG-shn"/>
-                                                <exclude reference="pyF-R3-yvb"/>
-                                                <exclude reference="2yD-eF-yFU"/>
-                                                <exclude reference="6Np-uN-C67"/>
-                                                <exclude reference="NBY-NR-WA5"/>
-                                                <exclude reference="0UW-jN-T5K"/>
-                                                <exclude reference="ltl-Y0-KfO"/>
-                                                <exclude reference="wWo-rx-eDO"/>
                                                 <exclude reference="NwN-cq-1SE"/>
                                                 <exclude reference="WTx-4o-4AL"/>
                                                 <exclude reference="YRZ-5X-Jfb"/>
+                                                <exclude reference="hhm-U4-ZfF"/>
+                                                <exclude reference="kSf-MG-shn"/>
+                                                <exclude reference="pyF-R3-yvb"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -827,25 +845,26 @@
                                                 <include reference="mre-T6-MlW"/>
                                             </mask>
                                             <mask key="constraints">
+                                                <include reference="0UW-jN-T5K"/>
+                                                <include reference="ltl-Y0-KfO"/>
+                                                <include reference="wWo-rx-eDO"/>
+                                                <include reference="2yD-eF-yFU"/>
+                                                <include reference="6Np-uN-C67"/>
+                                                <include reference="NBY-NR-WA5"/>
                                                 <include reference="2Ux-Xn-HR3"/>
                                                 <include reference="fHv-PC-kFy"/>
                                                 <include reference="xeH-rl-lDi"/>
                                                 <include reference="xna-e4-JwT"/>
-                                                <include reference="hhm-U4-ZfF"/>
-                                                <include reference="kSf-MG-shn"/>
-                                                <include reference="pyF-R3-yvb"/>
-                                                <include reference="2yD-eF-yFU"/>
-                                                <include reference="6Np-uN-C67"/>
-                                                <include reference="NBY-NR-WA5"/>
-                                                <include reference="0UW-jN-T5K"/>
-                                                <include reference="ltl-Y0-KfO"/>
-                                                <include reference="wWo-rx-eDO"/>
                                                 <include reference="NwN-cq-1SE"/>
                                                 <include reference="WTx-4o-4AL"/>
                                                 <include reference="YRZ-5X-Jfb"/>
+                                                <include reference="hhm-U4-ZfF"/>
+                                                <include reference="kSf-MG-shn"/>
+                                                <include reference="pyF-R3-yvb"/>
                                             </mask>
                                         </variation>
                                         <connections>
+                                            <outlet property="commentTextField" destination="mre-T6-MlW" id="RqC-q5-R6c"/>
                                             <outlet property="commentsTextView" destination="3mi-t3-Imj" id="YWI-8g-o2U"/>
                                             <outlet property="likesButton" destination="5Ga-zU-vMZ" id="Xoe-qL-kla"/>
                                             <outlet property="postImageView" destination="xXf-0h-2Oo" id="5EZ-Dk-RTe"/>
@@ -918,9 +937,6 @@
             <point key="canvasLocation" x="1995" y="386"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="anselAdams" width="928" height="550"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0wC-Cc-SV4"/>
     </inferredMetricsTieBreakers>

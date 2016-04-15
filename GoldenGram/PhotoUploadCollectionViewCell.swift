@@ -8,7 +8,13 @@
 
 import UIKit
 
+
 class PhotoUploadCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    
+    
+    
+    
+    
     
 }
