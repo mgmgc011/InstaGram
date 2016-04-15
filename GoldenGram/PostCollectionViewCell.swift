@@ -8,7 +8,7 @@
 
 import UIKit
 
-let imageHeight: CGFloat = 300.0
+let imageHeight: CGFloat = 200.0
 let offSetSpeed: CGFloat = 50.0
 
 class PostCollectionViewCell: UICollectionViewCell {
@@ -26,7 +26,6 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var userButton: UIButton!
-    
     @IBOutlet weak var commentsTextView: UITextView!
     @IBOutlet weak var likesButton: UIButton!
     

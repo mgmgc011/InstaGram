@@ -9,15 +9,15 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(CURRENT_USER)
-
     }
+    
     @IBAction func logInButtonTapped(sender: UIButton) {
         let email = self.userNameField.text
         let password = self.passwordField.text
@@ -42,16 +42,16 @@ class ViewController: UIViewController {
             alert.addAction(action)
             presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
-//        let ref = Firebase(url: "https://golengram.firebaseio.com")
-//        ref.authUser(userNameField.text, password: passwordField.text) { (error, authData) in
-//            if error != nil {
-//                print("incorrect")
-//            } else {
-//                
-//            }
-//        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if  userNameField.isFirstResponder() {
+            userNameField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if passwordField.isFirstResponder() {
+            logInButtonTapped(logInButton)
+        }
+        return true
     }
     
 }
