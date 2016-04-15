@@ -14,6 +14,7 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var camera: UIButton!
     @IBOutlet weak var photoLibrary: UIButton!
@@ -27,21 +28,29 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     var filterPhotos = [UIImage]()
     var items: [String] = ["none", "tonality", "noir", "anselAdams", "dark", "dots", "sepia", "fade", "chrome", "process", "transfer", "instant", "colorInvert"]
     var filterNames: [String] = ["CIColorControls", "CIPhotoEffectTonal","CIPhotoEffectNoir","CIMaximumComponent","CIMinimumComponent","CIDotScreen", "CISepiaTone", "CIPhotoEffectFade", "CIPhotoEffectChrome", "CIPhotoEffectProcess", "CIPhotoEffectTransfer", "CIPhotoEffectInstant", "CIColorInvert"]
-    var originalImage = UIImage()
+    var originalImage: UIImage!
     
-    var colors: [UIColor] = [UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.yellowColor()]
+    var colors: [UIColor]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        self.colors  = [UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.yellowColor()]
     }
     
     //ACCESS PHOTO LIBRARY
     @IBAction func photoLibraryButtonTapped(sender: AnyObject) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
         picker.sourceType = .PhotoLibrary
-        presentViewController(picker, animated: true, completion: nil)
+        self.presentViewController(picker, animated: true, completion: nil)
+//        picker.sourceType = .PhotoLibrary
+//        presentViewController(picker, animated: true, completion: nil)
     }
+    
+    
     
     //ACCESS CAMERA
     @IBAction func cameraButtonTapped(sender: AnyObject) {
@@ -58,21 +67,23 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage;
-        self.originalImage = imageView.image!
-        dismissViewControllerAnimated(true, completion: nil)
-        loaded = true
+        self.imageView.image = info[UIImagePickerControllerEditedImage] as? UIImage;
+        
         collectionView.hidden = false
-        collectionView.reloadData()
+        self.collectionView.reloadData()
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        
     }
-    @IBOutlet weak var collectionView: UICollectionView!
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCell", forIndexPath: indexPath) as! PhotoUploadCollectionViewCell
         cell.backgroundColor = colors[indexPath.row]
-        cell.imageView.image = self.originalImage
-        cell.contentView.bringSubviewToFront(cell.imageView)
+        
+        cell.imageView.image = self.imageView.image
+        
+//        cell.contentView.bringSubviewToFront(cell.imageView)
         print(self.items.count)
+        print("--> \(cell.imageView.image)\n===> \(self.imageView.image)")
 //        dispatch_async(dispatch_get_main_queue()) {
 //            let CIfilterName = self.filterNames[indexPath.row]
 //            let ciContext = CIContext(options: nil)
@@ -99,11 +110,13 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return colors.count
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("tapped cell: \(indexPath.row)")
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        print("=-=-=-> \((cell as? PhotoUploadCollectionViewCell)?.imageView.image)")
     }
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //        return self.items.count;
@@ -154,11 +167,9 @@ class PhotoUploadViewController: UIViewController, UIImagePickerControllerDelega
                         print("Data could not be saved.")
                     } else {
                         print("Data saved successfully!")
-                        dispatch_async(dispatch_get_main_queue()) {
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             let vc = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
                             self.presentViewController(vc, animated: true, completion: nil)
-                        }
                     }
                 })
             })

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, LikeAddedDelegate {
     
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
     var posts = [Post]()
+    var indexPath: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +81,26 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    
+    func likeAdded(cell: PostCollectionViewCell) {
+        indexPath = feedCollectionView.indexPathForCell(cell)
+        let likeCell = posts[(indexPath?.row)!]
+        likeCell.likes = 1
+
+        
+        print("like added")
+
+        FIREBASE_REF.childByAppendingPath("posts").childByAppendingPath(NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String).childByAppendingPath("likes").setValue(likeCell.likes)
+        feedCollectionView.reloadData()
+        
+
+    }
+//    for post in self.posts {
+//    userPostRef.updateChildValues([String(format:"Timestamp: %i:", NSInteger(NSDate.timeIntervalSinceReferenceDate())) : post], withCompletionBlock: { (error:NSError?, ref:Firebase!) in
+//    if (error != nil) {
+//    print("Data could not be saved.")
+//    } else {
+//    print("Data saved successfully!")
+//    }
+//    })
     
 }
